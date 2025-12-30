@@ -1,0 +1,130 @@
+https://github.com/haseebullah4273/expense_tracking_app<!DOCTYPE html>
+<html>
+<head>
+<title>Scientific Calculator</title>
+
+<style>
+    * {
+        text-align: center;
+        font-family: Arial;
+    }
+
+    body {
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    form {
+        display: inline-block;
+        width: 400px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 6px;
+    }
+
+    #outputscreen {
+        width: 300px;
+        height: 35px;
+        font-size: 18px;
+        resize: none;
+        margin-bottom: 10px;
+        text-align: right;
+    }
+
+    input {
+        width: 60px;
+        padding: 10px;
+        margin: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h2>Scientific Calculator</h2>
+
+<form>
+    <textarea id="outputscreen" rows="1" readonly></textarea><br>
+
+    <input type="button" value="sin" onclick="sin()">
+    <input type="button" value="cos" onclick="cos()">
+    <input type="button" value="+" onclick="add('+')">
+    <input type="button" value="-" onclick="add('-')"><br>
+
+    <input type="button" value="1" onclick="add('1')">
+    <input type="button" value="2" onclick="add('2')">
+    <input type="button" value="3" onclick="add('3')">
+    <input type="button" value="*" onclick="add('*')"><br>
+
+    <input type="button" value="4" onclick="add('4')">
+    <input type="button" value="5" onclick="add('5')">
+    <input type="button" value="6" onclick="add('6')">
+    <input type="button" value="/" onclick="add('/')"><br>
+
+    <input type="button" value="7" onclick="add('7')">
+    <input type="button" value="8" onclick="add('8')">
+    <input type="button" value="9" onclick="add('9')">
+    <input type="button" value="SQRT" onclick="sqrt()"><br>
+
+
+    <input type="button" value="0" onclick="add('0')">
+    <input type="button" value="." onclick="add('.')">
+    <input type="button" value="=" onclick="equal()">
+    <input type="reset" value="C" onclick="clearScreen()">
+</form>
+
+</div>
+
+<script>
+let calculate = "";
+let total2;
+function total(){ 
+    return document.getElementById("outputscreen");
+
+}
+
+
+function sqrt(){
+    
+    total = Math.sqrt(calculate);
+}
+function add(x) {
+    total2 = total();
+    calculate = calculate + x;
+    total2.value = calculate;
+}
+
+function equal() {
+    total2 = total();
+    calculate = eval(calculate);
+    total2.value = calculate;
+}
+
+/* Trigonometric functions (degrees) */
+function sin() {
+    total2 = total();
+    calculate = Math.sin(calculate * Math.PI / 180);
+    total2.value = calculate;
+}
+
+function cos() {
+    total2 = total();
+    calculate = Math.cos(calculate * Math.PI / 180);
+    total2.value = calculate;
+}
+
+function clearScreen() {
+    total2 = total();
+    calculate = "";
+    total2.value = calculate;
+}
+</script>
+
+</body>
+</html>
